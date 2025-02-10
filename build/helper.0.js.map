@@ -1,0 +1,16 @@
+{
+    "version": 3,
+    "names": [
+        "window",
+        "helper",
+        "alert"
+    ],
+    "sources": [
+        "/client/helper.js"
+    ],
+    "sourcesContent": [
+        "window.helper = () => {\n    alert('helper v0');\n}\n"
+    ],
+    "mappings": ";;AAAAA,MAAM,CAACC,MAAM,GAAG,YAAM;EAClBC,KAAK,CAAC,WAAW,CAAC;AACtB,CAAC",
+    "ignoreList": []
+}

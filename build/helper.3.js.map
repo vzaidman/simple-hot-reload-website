@@ -1,0 +1,18 @@
+{
+    "version": 3,
+    "names": [
+        "window",
+        "helper",
+        "console",
+        "log",
+        "alert"
+    ],
+    "sources": [
+        "/client/helper.js"
+    ],
+    "sourcesContent": [
+        "window.helper = () => {\n    console.log('hey! this is an updated helper!');\n    console.log('hey! this is an updated helper!');\n    console.log('hey! this is an updated helper!');\n\n    alert('helper v3');\n\n    console.log('hey! this is an updated helper!');\n    console.log('hey! this is an updated helper!');\n    console.log('hey! this is an updated helper!');\n    console.log('hey! this is an updated helper!');\n}\n"
+    ],
+    "mappings": ";;AAAAA,MAAM,CAACC,MAAM,GAAG,YAAM;EAClBC,OAAO,CAACC,GAAG,CAAC,iCAAiC,CAAC;EAC9CD,OAAO,CAACC,GAAG,CAAC,iCAAiC,CAAC;EAC9CD,OAAO,CAACC,GAAG,CAAC,iCAAiC,CAAC;EAE9CC,KAAK,CAAC,WAAW,CAAC;EAElBF,OAAO,CAACC,GAAG,CAAC,iCAAiC,CAAC;EAC9CD,OAAO,CAACC,GAAG,CAAC,iCAAiC,CAAC;EAC9CD,OAAO,CAACC,GAAG,CAAC,iCAAiC,CAAC;EAC9CD,OAAO,CAACC,GAAG,CAAC,iCAAiC,CAAC;AAClD,CAAC",
+    "ignoreList": []
+}

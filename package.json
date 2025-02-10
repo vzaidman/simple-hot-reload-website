@@ -1,0 +1,23 @@
+{
+  "name": "simple-hot-reload-website",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "build": "node build.js",
+    "start": "node server.js"
+  },
+  "authors": [
+    "Vitali Zaidman <vzaidman@gmail.com> (https://github.com/vzaidman)"
+  ],
+  "license": "MIT",
+  "type": "module",
+  "dependencies": {
+    "express": "^4.21.2"
+  },
+  "devDependencies": {
+    "@babel/core": "^7.26.8",
+    "@babel/preset-env": "^7.26.8"
+  },
+  "browserslist": "ie 11"
+}
