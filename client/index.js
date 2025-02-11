@@ -1,8 +1,10 @@
 let currentHRCount = 0;
 
 window.hotreload = async function hotreload({enableSourcesContent}) {
-    if (currentHRCount >= 3) {
-        alert(`only ${currentHRCount} hot reloads are available in this example.`);
+    currentHRCount++;
+
+    if (currentHRCount > 3) {
+        alert(`only ${currentHRCount - 1} hot reloads are available in this example.`);
         return;
     }
 
@@ -14,8 +16,6 @@ window.hotreload = async function hotreload({enableSourcesContent}) {
         body: JSON.stringify({ version: currentHRCount }),
         method: 'post',
     });
-
-    currentHRCount++;
 
     var script = document.createElement('script');
     script.src = `build/helper.${currentHRCount}.js${enableSourcesContent ? '' : '.no-sources-content.js'}`;

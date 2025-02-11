@@ -12,14 +12,15 @@ window.hotreload = /*#__PURE__*/function () {
       while (1) switch (_context.prev = _context.next) {
         case 0:
           enableSourcesContent = _ref.enableSourcesContent;
-          if (!(currentHRCount >= 3)) {
-            _context.next = 4;
+          currentHRCount++;
+          if (!(currentHRCount > 3)) {
+            _context.next = 5;
             break;
           }
-          alert("only ".concat(currentHRCount, " hot reloads are available in this example."));
+          alert("only ".concat(currentHRCount - 1, " hot reloads are available in this example."));
           return _context.abrupt("return");
-        case 4:
-          _context.next = 6;
+        case 5:
+          _context.next = 7;
           return fetch('hotreload', {
             headers: {
               'Accept': 'application/json',
@@ -30,8 +31,7 @@ window.hotreload = /*#__PURE__*/function () {
             }),
             method: 'post'
           });
-        case 6:
-          currentHRCount++;
+        case 7:
           script = document.createElement('script');
           script.src = "build/helper.".concat(currentHRCount, ".js").concat(enableSourcesContent ? '' : '.no-sources-content.js');
           document.head.appendChild(script);

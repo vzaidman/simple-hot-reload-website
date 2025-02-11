@@ -37,7 +37,7 @@ fs.readdirSync('./client')
         src: `client/${fileName}`,
         dest: `build/${fileName}`,
         sourceFileName: `/client/${fileName}`,
-        enableSourcesContent: true
+        enableSourcesContent: false
     }));
 
 // prepare hot reloaded bundles with source content

@@ -9,7 +9,7 @@
         "/client/helper.js"
     ],
     "sourcesContent": [
-        "window.helper = () => {\n    alert('helper v0');\n}\n"
+        null
     ],
     "mappings": ";;AAAAA,MAAM,CAACC,MAAM,GAAG,YAAM;EAClBC,KAAK,CAAC,WAAW,CAAC;AACtB,CAAC",
     "ignoreList": []
