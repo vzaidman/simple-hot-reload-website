@@ -6,19 +6,20 @@ function asyncGeneratorStep(n, t, e, r, o, a, c) { try { var i = n[a](c), u = i.
 function _asyncToGenerator(n) { return function () { var t = this, e = arguments; return new Promise(function (r, o) { var a = n.apply(t, e); function _next(n) { asyncGeneratorStep(a, r, o, _next, _throw, "next", n); } function _throw(n) { asyncGeneratorStep(a, r, o, _next, _throw, "throw", n); } _next(void 0); }); }; }
 var currentHRCount = 0;
 window.hotreload = /*#__PURE__*/function () {
-  var _hotreload = _asyncToGenerator(/*#__PURE__*/_regeneratorRuntime().mark(function _callee() {
-    var script;
+  var _hotreload = _asyncToGenerator(/*#__PURE__*/_regeneratorRuntime().mark(function _callee(_ref) {
+    var enableSourcesContent, script;
     return _regeneratorRuntime().wrap(function _callee$(_context) {
       while (1) switch (_context.prev = _context.next) {
         case 0:
+          enableSourcesContent = _ref.enableSourcesContent;
           if (!(currentHRCount >= 3)) {
-            _context.next = 3;
+            _context.next = 4;
             break;
           }
           alert("only ".concat(currentHRCount, " hot reloads are available in this example."));
           return _context.abrupt("return");
-        case 3:
-          _context.next = 5;
+        case 4:
+          _context.next = 6;
           return fetch('hotreload', {
             headers: {
               'Accept': 'application/json',
@@ -29,20 +30,20 @@ window.hotreload = /*#__PURE__*/function () {
             }),
             method: 'post'
           });
-        case 5:
+        case 6:
           currentHRCount++;
           script = document.createElement('script');
-          script.src = "build/helper.".concat(currentHRCount, ".js");
+          script.src = "build/helper.".concat(currentHRCount, ".js").concat(enableSourcesContent ? '' : '.no-sources-content.js');
           document.head.appendChild(script);
-        case 9:
+        case 10:
         case "end":
           return _context.stop();
       }
     }, _callee);
   }));
-  function hotreload() {
+  function hotreload(_x) {
     return _hotreload.apply(this, arguments);
   }
   return hotreload;
 }();
-//# sourceMappingURL=index.js.map
+//# sourceMappingURL=../build/index.js.map

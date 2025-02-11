@@ -12,8 +12,11 @@
     <Button onclick="window.helper()">
        Use helper!
     </Button>
-    <Button onclick="window.hotreload()">
-        Hot reload!
+    <Button onclick="window.hotreload({enableSourcesContent: true})">
+        Hot reload with "sourcesContent"!
+    </Button>
+    <Button onclick="window.hotreload({enableSourcesContent: false})">
+        Hot reload without "sourcesContent"!
     </Button>
 </body>
 </html>

@@ -3,11 +3,8 @@
 window.helper = function () {
   console.log('hey! this is an updated helper!');
   console.log('hey! this is an updated helper!');
-  console.log('hey! this is an updated helper!');
-  alert('helper v3');
-  console.log('hey! this is an updated helper!');
-  console.log('hey! this is an updated helper!');
+  alert('helper v2');
   console.log('hey! this is an updated helper!');
   console.log('hey! this is an updated helper!');
 };
-//# sourceMappingURL=../build/helper.3.js.map
+//# sourceMappingURL=../build/helper.2.js.no-sources-content.js.map

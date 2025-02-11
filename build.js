@@ -10,38 +10,52 @@ fs.copyFileSync('./client/index.html', './build/index.html');
 // reset helper.js to be not hot reloaded
 fs.copyFileSync('./helper-versions/helper.0.js', './client/helper.js');
 
-// prepare original bundles
+function transform({src, dest, sourceFileName, enableSourcesContent}) {
+    const {code, map} = babel.transformFileSync(src, {
+        sourceMaps: true,
+        presets: ['@babel/preset-env']
+    });
+
+    if (!enableSourcesContent) {
+        map.sourcesContent = [null];
+    }
+
+    map.sources = [sourceFileName];
+
+    // write transpiled file
+    fs.writeFileSync(dest, `${code}\n//# sourceMappingURL=../${dest}.map`);
+
+    // write map
+    fs.writeFileSync(`${dest}.map`, JSON.stringify(map, null, 4));
+}
+
+// prepare initial bundles
 fs.readdirSync('./client')
     .filter(fileName => fileName.endsWith('.js'))
-    .map(fileName => ({
+    .forEach(fileName => transform({
         fileName,
-        ...babel.transformFileSync(`./client/${fileName}`, {
-            sourceMaps: true,
-            presets: ['@babel/preset-env']
-        }),
-    }))
-    .forEach(({fileName, code, map}) => {
-        fs.writeFileSync(`./build/${fileName}`, `${code}\n//# sourceMappingURL=${fileName}.map`);
+        src: `client/${fileName}`,
+        dest: `build/${fileName}`,
+        sourceFileName: `/client/${fileName}`,
+        enableSourcesContent: true
+    }));
 
-        map.sources = [`/client/${fileName}`];
-
-        fs.writeFileSync(`./build/${fileName}.map`, JSON.stringify(map, null, 4));
-    });
-
-// prepare hot reload bundles
+// prepare hot reloaded bundles with source content
 fs.readdirSync('./helper-versions')
-    .map(fileName => ({
+    .map(fileName => transform({
         fileName,
-        ...babel.transformFileSync(`./helper-versions/${fileName}`, {
-            sourceMaps: true,
-            presets: ['@babel/preset-env']
-        }),
-    }))
-    .forEach(({fileName, code, map}) => {
-        fs.writeFileSync(`./build/${fileName}`, `${code}\n//# sourceMappingURL=${fileName}.map`);
+        src: `helper-versions/${fileName}`,
+        dest: `build/${fileName}`,
+        sourceFileName: '/client/helper.js', // the hot reloads are for helper.js
+        enableSourcesContent: true
+    }));
 
-        map.sources = [`/client/helper.js`];
-        map.sourcesContent = [null];
-
-        fs.writeFileSync(`./build/${fileName}.map`, JSON.stringify(map, null, 4));
-    });
+// prepare hot reloaded bundles without source content
+fs.readdirSync('./helper-versions')
+    .map(fileName => transform({
+        fileName,
+        src: `helper-versions/${fileName}`,
+        dest: `build/${fileName}.no-sources-content.js`,
+        sourceFileName: '/client/helper.js', // the hot reloads are for helper.js
+        enableSourcesContent: false
+    }));

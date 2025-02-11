@@ -10,4 +10,4 @@ window.helper = function () {
   console.log('hey! this is an updated helper!');
   console.log('hey! this is an updated helper!');
 };
-//# sourceMappingURL=../build/helper.3.js.map
+//# sourceMappingURL=../build/helper.3.js.no-sources-content.js.map

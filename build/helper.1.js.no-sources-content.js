@@ -5,4 +5,4 @@ window.helper = function () {
   alert('helper v1');
   console.log('hey! this is an updated helper!');
 };
-//# sourceMappingURL=../build/helper.1.js.map
+//# sourceMappingURL=../build/helper.1.js.no-sources-content.js.map
